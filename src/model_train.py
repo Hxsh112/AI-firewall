@@ -12,13 +12,12 @@ os.makedirs("models", exist_ok=True)
 def make_synthetic_dataset(n_samples=5000, random_state=42):
     df = simulate_sample(n=n_samples, random_state=random_state)
     score = (
-        (df['entropy'] > 6.0).astype(int)
-        + (df['uncommon_dst_ip'] == 1).astype(int)
-        + (df['process_spawn_count'] >= 2).astype(int)
+        (df["entropy"] > 6.0).astype(int)
+        + (df["uncommon_dst_ip"] == 1).astype(int)
+        + (df["process_spawn_count"] >= 2).astype(int)
     )
     y = (score >= 2).astype(int)
     return df, y
-
 
 if __name__ == "__main__":
     X, y = make_synthetic_dataset(n_samples=8000)
@@ -40,4 +39,3 @@ if __name__ == "__main__":
     model_path = os.path.join("models", "model.pkl")
     joblib.dump(clf, model_path)
     print("Saved model to", model_path)
-    
