@@ -7,9 +7,8 @@ import pandas as pd
 from src.feature_extractor import simulate_sample, FEATURE_COLUMNS
 from time import sleep
 
-# ----------------------------------------
 # PAGE CONFIG
-# ----------------------------------------
+
 st.set_page_config(
     page_title="AI Firewall Dashboard",
     page_icon="🛡️",
@@ -17,9 +16,8 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ----------------------------------------
+
 # CUSTOM CSS STYLING
-# ----------------------------------------
 st.markdown("""
 <style>
 body {
@@ -49,9 +47,8 @@ footer {visibility: hidden;}
 </style>
 """, unsafe_allow_html=True)
 
-# ----------------------------------------
 # HEADER
-# ----------------------------------------
+
 st.title("🛡️ AI Firewall Dashboard")
 st.caption("AI-powered behavioral malware detection prototype")
 
@@ -62,16 +59,12 @@ sample_size = st.sidebar.slider("Sample Size", 1, 50, 5)
 st.sidebar.markdown("---")
 st.sidebar.info("Ensure FastAPI backend is running before detection (`uvicorn api.main:app --port 8000`).")
 
-# ----------------------------------------
 # SECTION: GENERATE DATA
-# ----------------------------------------
 st.subheader("📡 Simulate Network Activity")
 df = simulate_sample(sample_size)
 st.dataframe(df, use_container_width=True)
 
-# ----------------------------------------
 # SECTION: DETECTION
-# ----------------------------------------
 st.markdown("---")
 st.subheader("🚀 Threat Detection Panel")
 
@@ -109,9 +102,8 @@ with col1:
 with col2:
     st.info("ℹ️ You can also input custom values manually below to simulate specific conditions.")
 
-# ----------------------------------------
 # SECTION: MANUAL INPUT
-# ----------------------------------------
+
 st.markdown("---")
 st.subheader("🧠 Manual Threat Simulation")
 
@@ -133,10 +125,9 @@ with st.expander("Enter feature values manually"):
                     st.success(f"✅ Clean Sample — Confidence {score}%")
             except Exception as e:
                 st.error(f"Error: {e}")
-
-# ----------------------------------------
+                
 # SECTION: FOOTER
-# ----------------------------------------
+
 st.markdown("---")
 st.markdown(
     "<p style='text-align:center; color:gray;'>Developed by Harsh Jain • AI Firewall Prototype • Streamlit + FastAPI</p>",
