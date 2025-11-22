@@ -1,6 +1,6 @@
 # AI-firewall
 AI- Powered firewall that detects and blocks harmful prompts and responses using LLM moderation layers. In a nutshell not your traditional firewalls.
-# AI Firewall — Prototype
+# AI Firewall - Prototype
 Minimal prototype that demonstrates an ML-driven malware/behavior detector using synthetic network/endpoint features. Designed for portfolio/demo use.
 ## What this repo contains
 - Data generator & training that produces a simple RandomForest classifier
